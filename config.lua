@@ -17,4 +17,14 @@ conf.switches = {
     ['26'] = { pin = 0 }
 }
 
+conf.dns = {
+    hostname = 'switchboard',
+    options = {
+        description = 'A switchboard',
+        service = 'http',
+        port = '80',
+        location = 'My room'
+    }
+}
+
 return conf;
