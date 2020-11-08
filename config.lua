@@ -17,6 +17,8 @@ conf.switches = {
     ['26'] = { pin = 0 }
 }
 
+conf.ID_LENGTH = 2
+
 -- Configuration for wireless access point (hotspot)
 conf.ap = {
     ssid = 'some ssid',
