@@ -17,6 +17,12 @@ conf.switches = {
     ['26'] = { pin = 0 }
 }
 
+-- Configuration for wireless access point (hotspot)
+conf.ap = {
+    ssid = 'some ssid',
+    pwd = 'some password'
+}
+
 conf.dns = {
     hostname = 'switchboard',
     options = {
