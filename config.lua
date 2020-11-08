@@ -23,6 +23,11 @@ conf.ap = {
     pwd = 'some password'
 }
 
+-- Configuration for http server
+conf.server = {
+    port = 80
+}
+
 conf.dns = {
     hostname = 'switchboard',
     options = {
