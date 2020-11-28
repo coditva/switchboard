@@ -7,14 +7,14 @@ local conf = {}
 --      pin - the pin to use for GPIO
 --      state - the default value for the state of the switch (1 = on, 0 = off)
 conf.switches = {
-    ['02'] = { pin = 1 },
-    ['96'] = { pin = 2 },
-    ['97'] = { pin = 3 },
-    ['40'] = { pin = 4 },
-    ['4f'] = { pin = 5 },
-    ['ed'] = { pin = 6 },
-    ['1c'] = { pin = 7 },
-    ['26'] = { pin = 0 }
+    ['00'] = { pin = 1 },
+    ['01'] = { pin = 2 },
+    ['02'] = { pin = 3 },
+    ['03'] = { pin = 4 },
+    ['04'] = { pin = 5 },
+    ['05'] = { pin = 6 },
+    ['06'] = { pin = 7 },
+    ['07'] = { pin = 0 }
 }
 
 conf.ID_LENGTH = 2
