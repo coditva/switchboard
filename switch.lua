@@ -18,7 +18,7 @@ function switch.get_state (id)
 end
 
 function switch.set_state (id, state)
-    state = state and 1 or 0
+    state = state == 1 and 1 or 0
     gpio_state = state == 1 and gpio.HIGH or gpio.LOW
 
     gpio.write(switches[id].pin, gpio_state)
@@ -26,9 +26,13 @@ function switch.set_state (id, state)
 end
 
 function switch.toggle_state (id)
+    print('id', id)
+    print('state', switch.get_state(id))
     if switch.get_state(id) == 1 then
+        print('set 0')
         switch.set_state(id, 0)
     else
+        print('set 1')
         switch.set_state(id, 1)
     end
 end
