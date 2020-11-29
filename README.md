@@ -32,3 +32,5 @@ Toggles the state of the switch wired to the pin corresponding to the `id` (as s
     "state": 1
 }
 ```
+
+**Note: You can also use `http://switchboard.local` (or whatever hostname you configured in `config.lua`) in place of `192.168.4.1`.**
