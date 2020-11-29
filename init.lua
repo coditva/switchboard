@@ -23,14 +23,16 @@ local function handle_get_call (url)
     print("GET ", url)
 
     if url == "/" then
-        return "{status:\"OK\"}"
+        return "{\"status\":\"OK\"}"
     end
 
     id = get_id_from_url(url)
 
     if switch.is_present(id) then
-        return "{state:" .. switch.get_state(id) .. "}"
+        return "{\"state\":" .. switch.get_state(id) .. "}"
     end
+
+    return "{\"error\":\"invalid id\"}"
 end
 
 local function handle_post_call (url)
@@ -41,8 +43,10 @@ local function handle_post_call (url)
     if switch.is_present(id) then
         switch.toggle_state(id)
 
-        return "{state:" .. switch.get_state(id) .. "}"
+        return "{\"state\":" .. switch.get_state(id) .. "}"
     end
+
+    return "{\"error\":\"invalid id\"}"
 end
 
 local function handle_message (data)
@@ -57,20 +61,23 @@ local function handle_message (data)
     end
 
     iterator = first_line:gmatch("%S+")
-    method = iterator()
+    method = string.lower(iterator())
     url = iterator()
 
     if not method or not url then
-        return
+        print('invalid method', method)
+        return "{\"error\":\"invalid request\"}"
     end
 
-    if method == "GET" then
+    if method == "get" then
         return handle_get_call(url)
     end
 
-    if method == "POST" then
+    if method == "post" then
         return handle_post_call(url)
     end
+
+    return "{\"error\":\"invalid method\"}"
 end
 
 socket.handle_receive = function (sock, data)
